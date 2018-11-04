@@ -1,5 +1,9 @@
-package libraryinventory
+package main
 
+// ISBN represents an international standard book number
+type ISBN string
+
+// Stock represents the library's stock of books
 type Stock map[ISBN]int
 
 // DefaultStock represents the default stock for each book

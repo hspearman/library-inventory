@@ -1,4 +1,4 @@
-package libraryinventory
+package main
 
 import "testing"
 

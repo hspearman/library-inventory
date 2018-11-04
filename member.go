@@ -1,7 +1,4 @@
-package libraryinventory
-
-// ISBN represents an international standard book number
-type ISBN string
+package main
 
 var stockByUser = map[string]Stock{}
 
