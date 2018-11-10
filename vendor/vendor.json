@@ -1,0 +1,19 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "67gg20GOmTF3+vaPZw6NY4jgCmg=",
+			"path": "github.com/go-redis/redis",
+			"revision": "58f22c56fdbdf07f5d6f5e397a6e134b94c65b0c",
+			"revisionTime": "2018-11-03T10:07:25Z"
+		},
+		{
+			"checksumSHA1": "tO8sAEwIvmwiEWgbCdMnNXO2Joo=",
+			"path": "github.com/labstack/echo",
+			"revision": "ba1891b3dc1fc5548330e580c51157ea5eb6604f",
+			"revisionTime": "2018-10-15T07:31:26Z"
+		}
+	],
+	"rootPath": "github.com/hspearman/library-inventory"
+}
