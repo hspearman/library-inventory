@@ -1,39 +1,53 @@
 package main
 
 import (
-	"net/http"
-
+	"github.com/hspearman/library-inventory/internal"
 	"github.com/labstack/echo"
+	"net/http"
 )
 
 func main() {
-	e := echo.New()
+	api := echo.New()
+	storageClient := internal.NewStorageClient()
 
-	e.GET("/", func(c echo.Context) error {
+	internal.SetDefaultInventory(storageClient)
+
+	api.GET("/", func(c echo.Context) error {
 		return c.JSON(
 			http.StatusOK,
-			getStock(),
+			internal.GetInventory(storageClient),
 		)
 	})
 
-	e.GET("/user/:id", func(c echo.Context) error {
+	api.GET("/user/:id", func(c echo.Context) error {
 		return c.JSON(
 			http.StatusOK,
-			getUserStock(c.Param("id")),
+			internal.GetUserInventory(
+				storageClient,
+				c.Param("id"),
+			),
 		)
 	})
 
-	e.POST("/user/:id/checkout", func(c echo.Context) error {
-		checkoutBook(ISBN(c.QueryParam("isbn")), c.Param("id"))
+	api.POST("/user/:id/checkout", func(c echo.Context) error {
+		internal.CheckoutBook(
+			storageClient,
+			c.QueryParam("isbn"),
+			c.Param("id"),
+		)
 
 		return c.NoContent(http.StatusOK)
 	})
 
-	e.POST("/user/:id/return", func(c echo.Context) error {
-		returnBook(ISBN(c.QueryParam("isbn")), c.Param("id"))
+	api.POST("/user/:id/return", func(c echo.Context) error {
+		internal.ReturnBook(
+			storageClient,
+			c.QueryParam("isbn"),
+			c.Param("id"),
+		)
 
 		return c.NoContent(http.StatusOK)
 	})
 
-	e.Logger.Fatal(e.Start(":1323"))
+	api.Logger.Fatal(api.Start(":1323"))
 }
