@@ -12,10 +12,10 @@ var defaultInventory = Inventory{
 	"9780679406419": DefaultStock, // The Complete Maus
 }
 
-func GetInventory(s IStorageClient) Inventory {
+func GetInventory(s IStorageClient) (Inventory, error) {
 	return s.GetInventory()
 }
 
-func SetDefaultInventory(s IStorageClient) {
-	s.SetInventory(defaultInventory)
+func SetDefaultInventory(s IStorageClient) error {
+	return s.SetInventory(defaultInventory)
 }
