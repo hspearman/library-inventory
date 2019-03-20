@@ -33,9 +33,21 @@ func (m *MockIStorageClient) EXPECT() *MockIStorageClientMockRecorder {
 	return m.recorder
 }
 
+// Close mocks base method
+func (m *MockIStorageClient) Close() {
+	m.ctrl.Call(m, "Close")
+}
+
+// Close indicates an expected call of Close
+func (mr *MockIStorageClientMockRecorder) Close() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockIStorageClient)(nil).Close))
+}
+
 // DecrementLibraryStock mocks base method
-func (m *MockIStorageClient) DecrementLibraryStock(arg0 string) {
-	m.ctrl.Call(m, "DecrementLibraryStock", arg0)
+func (m *MockIStorageClient) DecrementLibraryStock(arg0 string) error {
+	ret := m.ctrl.Call(m, "DecrementLibraryStock", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
 }
 
 // DecrementLibraryStock indicates an expected call of DecrementLibraryStock
@@ -44,8 +56,10 @@ func (mr *MockIStorageClientMockRecorder) DecrementLibraryStock(arg0 interface{}
 }
 
 // DecrementUserStock mocks base method
-func (m *MockIStorageClient) DecrementUserStock(arg0, arg1 string) {
-	m.ctrl.Call(m, "DecrementUserStock", arg0, arg1)
+func (m *MockIStorageClient) DecrementUserStock(arg0, arg1 string) error {
+	ret := m.ctrl.Call(m, "DecrementUserStock", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
 }
 
 // DecrementUserStock indicates an expected call of DecrementUserStock
@@ -54,10 +68,11 @@ func (mr *MockIStorageClientMockRecorder) DecrementUserStock(arg0, arg1 interfac
 }
 
 // GetInventory mocks base method
-func (m *MockIStorageClient) GetInventory() internal.Inventory {
+func (m *MockIStorageClient) GetInventory() (internal.Inventory, error) {
 	ret := m.ctrl.Call(m, "GetInventory")
 	ret0, _ := ret[0].(internal.Inventory)
-	return ret0
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
 }
 
 // GetInventory indicates an expected call of GetInventory
@@ -66,10 +81,11 @@ func (mr *MockIStorageClientMockRecorder) GetInventory() *gomock.Call {
 }
 
 // GetUserInventory mocks base method
-func (m *MockIStorageClient) GetUserInventory(arg0 string) internal.Inventory {
+func (m *MockIStorageClient) GetUserInventory(arg0 string) (internal.Inventory, error) {
 	ret := m.ctrl.Call(m, "GetUserInventory", arg0)
 	ret0, _ := ret[0].(internal.Inventory)
-	return ret0
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
 }
 
 // GetUserInventory indicates an expected call of GetUserInventory
@@ -78,8 +94,10 @@ func (mr *MockIStorageClientMockRecorder) GetUserInventory(arg0 interface{}) *go
 }
 
 // IncrementLibraryStock mocks base method
-func (m *MockIStorageClient) IncrementLibraryStock(arg0 string) {
-	m.ctrl.Call(m, "IncrementLibraryStock", arg0)
+func (m *MockIStorageClient) IncrementLibraryStock(arg0 string) error {
+	ret := m.ctrl.Call(m, "IncrementLibraryStock", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
 }
 
 // IncrementLibraryStock indicates an expected call of IncrementLibraryStock
@@ -88,8 +106,10 @@ func (mr *MockIStorageClientMockRecorder) IncrementLibraryStock(arg0 interface{}
 }
 
 // IncrementUserStock mocks base method
-func (m *MockIStorageClient) IncrementUserStock(arg0, arg1 string) {
-	m.ctrl.Call(m, "IncrementUserStock", arg0, arg1)
+func (m *MockIStorageClient) IncrementUserStock(arg0, arg1 string) error {
+	ret := m.ctrl.Call(m, "IncrementUserStock", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
 }
 
 // IncrementUserStock indicates an expected call of IncrementUserStock
@@ -98,8 +118,10 @@ func (mr *MockIStorageClientMockRecorder) IncrementUserStock(arg0, arg1 interfac
 }
 
 // SetInventory mocks base method
-func (m *MockIStorageClient) SetInventory(arg0 internal.Inventory) {
-	m.ctrl.Call(m, "SetInventory", arg0)
+func (m *MockIStorageClient) SetInventory(arg0 internal.Inventory) error {
+	ret := m.ctrl.Call(m, "SetInventory", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
 }
 
 // SetInventory indicates an expected call of SetInventory

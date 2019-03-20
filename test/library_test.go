@@ -7,7 +7,6 @@ import (
 )
 
 func Test_GetsInventory(t *testing.T) {
-
 	mockCtrl := gomock.NewController(t)
 	defer mockCtrl.Finish()
 
@@ -15,5 +14,5 @@ func Test_GetsInventory(t *testing.T) {
 
 	s.EXPECT().GetInventory()
 
-	_ = internal.GetInventory(s)
+	_, _ = internal.GetInventory(s)
 }
