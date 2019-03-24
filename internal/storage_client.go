@@ -25,7 +25,7 @@ type storageClient struct {
 const UniversalStockKey = "universal_stock"
 
 func NewStorageClient() (IStorageClient, error) {
-	conn, err := redis.Dial("tcp", ":6379")
+	conn, err := redis.Dial("tcp", "redis:6379")
 	if err != nil {
 		return nil, err
 	}
